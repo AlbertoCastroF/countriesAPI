@@ -1,8 +1,22 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Switch, Route } from "react-router";
+import HeaderContainer from "./Containers/HeaderContainer";
+import Main from "./pages/Main";
+import Details from "./pages/Details";
 
 function App() {
-  return <h1>Hello</h1>;
+  return (
+    <div>
+      <HeaderContainer />
+      <Switch>
+        <Route exact path="/">
+          <Main />
+        </Route>
+        <Route exact path="/:countryId">
+          <Details />
+        </Route>
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
