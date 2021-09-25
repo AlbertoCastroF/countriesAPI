@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const Context = React.createContext();
 
@@ -11,6 +11,7 @@ function ContextProvider({ children }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState("");
   const [lightMode, setLightMode] = useState(false);
+  // const mountedRef = useRef(true);
 
   function handleOnClick() {
     setLightMode((prevState) => !prevState);
@@ -39,6 +40,7 @@ function ContextProvider({ children }) {
       fetch("https://restcountries.com/v2/all")
         .then((res) => res.json())
         .then((data) => {
+          // if (!mountedRef.current) return null;
           setData(data);
           setbackupData(data);
           setIsLoading(false);
@@ -50,6 +52,7 @@ function ContextProvider({ children }) {
         });
     }
     setData(filterData());
+    // return () => (mountedRef.current = false);
   }, [location]);
 
   return (
