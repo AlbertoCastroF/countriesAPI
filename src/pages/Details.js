@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { useParams } from "react-router-dom";
 import { DetailedCountry } from "../components";
-// import { TopLevelDomain } from "../components/detailedCountry/styles/styles";
 
 function Details() {
   const { countryId } = useParams();

@@ -29,17 +29,19 @@ function ContextProvider({ children }) {
     setLocation(e.target.value);
   }
 
+  function filterData() {
+    const regData = backupData.filter((item) => item.continent === location);
+    return regData;
+  }
+
   useEffect(() => {
     if (!location) {
-      fetch("https://restcountries.com/v2/all", {
-        mode: "cors",
-        credentials: "include",
-      })
+      fetch("https://restcountries.com/v2/all")
         .then((res) => res.json())
         .then((data) => {
+          setData(data);
           setbackupData(data);
           setIsLoading(false);
-          setData(data);
         })
         .catch((err) => {
           setError(true);
@@ -47,11 +49,6 @@ function ContextProvider({ children }) {
           setErrorMessage(err.message);
         });
     }
-    function filterData() {
-      const regData = backupData.filter((item) => item.continent === location);
-      return regData;
-    }
-
     setData(filterData());
   }, [location]);
 
