@@ -8,7 +8,7 @@ function App() {
     <div>
       <HeaderContainer />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/countriesAPI">
           <Main />
         </Route>
         <Route path="/:countryId">

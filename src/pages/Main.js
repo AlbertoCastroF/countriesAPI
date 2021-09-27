@@ -20,7 +20,7 @@ function Main() {
           name="location"
           onChange={handleOnLocation}
         >
-          <Country.Option value="">All countries</Country.Option>
+          <Country.Option value="All">All countries</Country.Option>
           <Country.Option value="Africa">Africa</Country.Option>
           <Country.Option value="Americas">America</Country.Option>
           <Country.Option value="Asia">Asia</Country.Option>

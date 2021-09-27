@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [backupData, setbackupData] = useState([]);
+  const [continentData, setContinentData] = useState([]);
   const [data, setData] = useState([]);
   const [location, setLocation] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +12,6 @@ function ContextProvider({ children }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState("");
   const [lightMode, setLightMode] = useState(false);
-  // const mountedRef = useRef(true);
 
   function handleOnClick() {
     setLightMode((prevState) => !prevState);
@@ -20,7 +20,7 @@ function ContextProvider({ children }) {
   function handleOnInput(e) {
     setInput(e.target.value);
     setData(
-      backupData.filter((item) =>
+      continentData.filter((item) =>
         item.name.toLowerCase().includes(e.target.value)
       )
     );
@@ -30,18 +30,24 @@ function ContextProvider({ children }) {
     setLocation(e.target.value);
   }
 
-  function filterData() {
-    const regData = backupData.filter((item) => item.continent === location);
-    return regData;
-  }
-
   useEffect(() => {
+    console.log("effect executed");
+    function filterData() {
+      let newData = [];
+      if (location !== "All") {
+        newData = backupData.filter((item) => item.continent === location);
+        return newData;
+      } else {
+        newData = backupData;
+        return newData;
+      }
+    }
     if (!location) {
       fetch("https://restcountries.com/v2/all")
         .then((res) => res.json())
         .then((data) => {
-          // if (!mountedRef.current) return null;
           setData(data);
+          setContinentData(data);
           setbackupData(data);
           setIsLoading(false);
         })
@@ -50,9 +56,10 @@ function ContextProvider({ children }) {
           setIsLoading(false);
           setErrorMessage(err.message);
         });
+    } else {
+      setContinentData(filterData());
+      setData(filterData());
     }
-    setData(filterData());
-    // return () => (mountedRef.current = false);
   }, [location]);
 
   return (
@@ -71,15 +78,16 @@ function ContextProvider({ children }) {
         handleOnClick,
       }}
     >
-      {isLoading ? (
-        <h1 style={{ color: "white", padding: "1em" }}>LOADING DATA...</h1>
-      ) : error ? (
-        <h1 style={{ color: "white", padding: "1em" }}>
-          {errorMessage}. Try again later...
-        </h1>
-      ) : (
-        children
-      )}
+      {data &&
+        (isLoading ? (
+          <h1 style={{ color: "white", padding: "1em" }}>LOADING DATA...</h1>
+        ) : error ? (
+          <h1 style={{ color: "white", padding: "1em" }}>
+            {errorMessage}. Try again later...
+          </h1>
+        ) : (
+          children
+        ))}
     </Context.Provider>
   );
 }
