@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const backgroundDarkModeContainer = "hsl(207, 26%, 17%)";
+const backgroundDarkModeContainer = "hsl(300, 7%, 3%)";
 const backgroundLightModeContainer = "hsl(0, 0%, 90%)";
 
 export const GlobalStyles = createGlobalStyle`

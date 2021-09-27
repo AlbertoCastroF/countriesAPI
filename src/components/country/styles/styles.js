@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link as ReactRouterLink } from "react-router-dom";
 
 const font = "'Nunito Sans', sans-serif";
-const backgroundDarkModeContainer = "hsl(207, 26%, 17%)";
+const backgroundDarkModeContainer = "hsl(300, 7%, 3%)";
 const backgroundDarkMode = "hsl(209, 23%, 22%)";
 const backgroundLightMode = "hsl(0, 0%, 100%)";
 const backgroundLightModeContainer = "hsl(0, 0%, 90%)";
