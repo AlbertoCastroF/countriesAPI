@@ -31,7 +31,6 @@ function ContextProvider({ children }) {
   }
 
   useEffect(() => {
-    console.log("effect executed");
     function filterData() {
       let newData = [];
       if (location !== "All") {
