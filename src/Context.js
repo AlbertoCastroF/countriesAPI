@@ -50,6 +50,7 @@ function ContextProvider({ children }) {
           setContinentData(data);
           setbackupData(data);
           setIsLoading(false);
+          setLocation("All");
         })
         .catch((err) => {
           setError(true);
@@ -60,7 +61,7 @@ function ContextProvider({ children }) {
       setContinentData(filterData());
       setData(filterData());
     }
-  }, [location]);
+  }, [location, backupData]);
 
   return (
     <Context.Provider
@@ -78,16 +79,15 @@ function ContextProvider({ children }) {
         handleOnClick,
       }}
     >
-      {data &&
-        (isLoading ? (
-          <h1 style={{ color: "white", padding: "1em" }}>LOADING DATA...</h1>
-        ) : error ? (
-          <h1 style={{ color: "white", padding: "1em" }}>
-            {errorMessage}. Try again later...
-          </h1>
-        ) : (
-          children
-        ))}
+      {isLoading ? (
+        <h1 style={{ color: "white", padding: "1em" }}>LOADING DATA...</h1>
+      ) : error ? (
+        <h1 style={{ color: "white", padding: "1em" }}>
+          {errorMessage}. Try again later...
+        </h1>
+      ) : (
+        children
+      )}
     </Context.Provider>
   );
 }

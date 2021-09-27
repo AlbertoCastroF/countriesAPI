@@ -5,7 +5,7 @@ import { DetailedCountry } from "../components";
 
 function Details() {
   const { countryId } = useParams();
-  const { backupData, lightMode } = useContext(Context);
+  const { backupData, lightMode, ...restProps } = useContext(Context);
   const country = backupData.filter((item) => item.alpha2Code === countryId)[0];
   return (
     backupData && (

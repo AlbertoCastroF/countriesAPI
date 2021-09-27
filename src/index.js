@@ -5,6 +5,7 @@ import { ContextProvider } from "./Context";
 import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./components";
+import "./Index.css";
 
 ReactDOM.render(
   <ContextProvider>
