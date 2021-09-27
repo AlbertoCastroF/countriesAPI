@@ -21,8 +21,8 @@ export const Container = styled.div`
   padding: 0.5rem;
   font-size: ${homepageFont};
   font-family: ${font};
-  background-color: ${({ lightMode }) =>
-    lightMode ? backgroundLightModeContainer : backgroundDarkModeContainer};
+  background-color: ${({ $lightMode }) =>
+    $lightMode ? backgroundLightModeContainer : backgroundDarkModeContainer};
 
   box-sizing: border-box;
 
@@ -35,7 +35,7 @@ export const Card = styled.div`
   width: 310px;
   display: flex;
   flex-direction: column;
-  color: ${({ lightMode }) => (lightMode ? fontLightMode : fontDarkMode)};
+  color: ${({ $lightMode }) => ($lightMode ? fontLightMode : fontDarkMode)};
   margin: 1rem;
   overflow: hidden;
 
@@ -111,13 +111,13 @@ export const BorderCountries = styled.h3`
 `;
 
 export const LinkHome = styled(ReactRouterLink)`
-  color: ${({ lightMode }) => (lightMode ? fontLightMode : fontDarkMode)};
+  color: ${({ $lightMode }) => ($lightMode ? fontLightMode : fontDarkMode)};
   font-size: 16px;
   text-decoration: none;
 `;
 
 export const Link = styled(ReactRouterLink)`
-  color: ${({ lightMode }) => (lightMode ? fontLightMode : fontDarkMode)};
+  color: ${({ $lightMode }) => ($lightMode ? fontLightMode : fontDarkMode)};
   text-decoration: none;
 `;
 
@@ -127,8 +127,8 @@ export const BorderButton = styled.button`
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
-  background-color: ${({ lightMode }) =>
-    lightMode ? backgroundLightMode : backgroundDarkMode};
+  background-color: ${({ $lightMode }) =>
+    $lightMode ? backgroundLightMode : backgroundDarkMode};
   margin: 0.5rem;
 `;
 
@@ -137,9 +137,9 @@ export const BackButton = styled.button`
   height: auto;
   padding: 0.5em 1em;
   border: none;
-  background-color: ${({ lightMode }) =>
-    lightMode ? backgroundLightMode : backgroundDarkMode};
-  color: ${({ lightMode }) => (lightMode ? fontLightMode : fontDarkMode)};
+  background-color: ${({ $lightMode }) =>
+    $lightMode ? backgroundLightMode : backgroundDarkMode};
+  color: ${({ $lightMode }) => ($lightMode ? fontLightMode : fontDarkMode)};
   margin: 0;
   margin: 2rem 0.5rem;
   align-self: start;

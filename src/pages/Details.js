@@ -5,14 +5,14 @@ import { DetailedCountry } from "../components";
 
 function Details() {
   const { countryId } = useParams();
-  const { backupData, lightMode, ...restProps } = useContext(Context);
+  const { backupData, lightMode } = useContext(Context);
   const country = backupData.filter((item) => item.alpha2Code === countryId)[0];
   return (
     backupData && (
-      <DetailedCountry lightMode={lightMode}>
-        <DetailedCountry.Card lightMode={lightMode}>
-          <DetailedCountry.BackButton lightMode={lightMode}>
-            <DetailedCountry.LinkHome lightMode={lightMode} to="/countriesAPI">
+      <DetailedCountry $lightMode={lightMode}>
+        <DetailedCountry.Card $lightMode={lightMode}>
+          <DetailedCountry.BackButton $lightMode={lightMode}>
+            <DetailedCountry.LinkHome $lightMode={lightMode} to="/countriesAPI">
               <i
                 style={{ marginRight: "1rem", fontSize: "1rem" }}
                 className="fas fa-arrow-left"
@@ -78,11 +78,11 @@ function Details() {
                       (item, i) =>
                         country.borders.includes(item.alpha3Code) && (
                           <DetailedCountry.BorderButton
-                            lightMode={lightMode}
+                            $lightMode={lightMode}
                             key={i}
                           >
                             <DetailedCountry.Link
-                              lightMode={lightMode}
+                              $lightMode={lightMode}
                               to={`/${item.alpha2Code}`}
                             >
                               {item.name}
@@ -91,7 +91,7 @@ function Details() {
                         )
                     )
                   ) : (
-                    <DetailedCountry.BackButton lightMode={lightMode}>
+                    <DetailedCountry.BackButton $lightMode={lightMode}>
                       No border countries
                     </DetailedCountry.BackButton>
                   )}
