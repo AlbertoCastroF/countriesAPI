@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/Index.css"],"names":[],"mappings":"AAAA,KACE,wBACF","file":"main.3cdcb591.chunk.css","sourcesContent":["body {\n  background-color: hsl(300, 7%, 3%);\n}\n"]}
