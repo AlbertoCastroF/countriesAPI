@@ -72,6 +72,11 @@ export const Card = styled.div`
     margin: 1rem;
     box-sizing: border-box;
   }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+  }
 `;
 
 export const Flag = styled.img`

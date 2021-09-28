@@ -144,6 +144,11 @@ export const BackButton = styled.button`
   margin: 2rem 0.5rem;
   align-self: start;
   box-shadow: 0 0 5px 0px ${fontLightMode};
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
 `;
 
 export const Text = styled.span`
