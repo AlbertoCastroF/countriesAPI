@@ -2,6 +2,7 @@ import { Header } from "../components";
 import { Context } from "../Context";
 import { useContext } from "react";
 
+//This Components stores all the header elements declared in header components
 function HeaderContainer() {
   const { lightMode, handleOnClick } = useContext(Context);
   return (

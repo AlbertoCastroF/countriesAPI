@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./components";
 import "./Index.css";
 
+//all the login contained in context.js is passed down to the main component with context provider, router for multiple pages app and globalStyles for general styles.
 ReactDOM.render(
   <ContextProvider>
     <Router>

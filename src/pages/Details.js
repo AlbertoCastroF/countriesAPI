@@ -21,7 +21,7 @@ function Details() {
             </DetailedCountry.LinkHome>
           </DetailedCountry.BackButton>
           <DetailedCountry.InfoContainer>
-            <DetailedCountry.Flag src={country.flags[0]} />
+            <DetailedCountry.Flag src={country.flags.svg} />
             <DetailedCountry.CountryInfoContainer>
               <DetailedCountry.CountryInfo>
                 <div>
@@ -39,8 +39,8 @@ function Details() {
                     {country.region}
                   </DetailedCountry.Region>
                   <DetailedCountry.Region>
-                    <DetailedCountry.Text>Continent: </DetailedCountry.Text>
-                    {country.continent}
+                    <DetailedCountry.Text>Sub region: </DetailedCountry.Text>
+                    {country.subregion}
                   </DetailedCountry.Region>
                   <DetailedCountry.Capital>
                     <DetailedCountry.Text>Capital: </DetailedCountry.Text>

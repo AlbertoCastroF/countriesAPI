@@ -32,7 +32,7 @@ function Main() {
         {data.map((item, i) => (
           <Country.Card lightMode={lightMode} key={i}>
             <Country.Link to={`/${item.alpha2Code}`}>
-              <Country.Flag src={item.flags[0]} />
+              <Country.Flag src={item.flags.svg} alt={`${item.name} flag`} />
             </Country.Link>
             <Country.CountryInfo>
               <Country.Title>{item.name}</Country.Title>

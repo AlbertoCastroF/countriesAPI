@@ -16,6 +16,8 @@ import {
   Link,
 } from "./styles/styles";
 
+//I used compound components to have more control over the components in case i have to remove or change them, and also combined this method with styled components because i think theres a good synergy between them.
+
 export default function Country({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
